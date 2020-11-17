@@ -102,7 +102,7 @@ function collisionDetection() {
                     bricks[i][j].status = false;
                     score++;
                     if (score == brickRowCount * brickColumnCount) {
-                        // alert("Congrats! You have beaten JS Breakout!");
+                        alert("Congrats! You have beaten JS Breakout!");
                         document.location.reload();
                         clearInterval(interval);
                     }
@@ -148,7 +148,7 @@ function movement() {
 
 // Game state functions
 function gameOver() {
-    // alert("GAME OVER");
+    alert("GAME OVER");
     document.location.reload();
     clearInterval(interval);
 }
