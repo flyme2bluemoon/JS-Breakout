@@ -168,4 +168,4 @@ function draw() {
 document.addEventListener("keydown", keyDownHandler)
 document.addEventListener("keyup", keyUpHandler)
 
-var interval = setInterval(draw, 5);
+var interval = setInterval(draw, 10);
