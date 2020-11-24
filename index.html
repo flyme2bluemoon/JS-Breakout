@@ -11,9 +11,11 @@
         <h1>JS Breakout</h1>
 
         <div>
-            <button type="button" class="btn btn-success" onclick="changeSpeed(1)">Easy</button>
-            <button type="button" class="btn btn-warning" onclick="changeSpeed(2)">Medium</button>
-            <button type="button" class="btn btn-danger" onclick="changeSpeed(3)">Hard</button>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-success" onclick="changeSpeed(1)">Easy</button>
+                <button type="button" class="btn btn-warning" onclick="changeSpeed(2)">Medium</button>
+                <button type="button" class="btn btn-danger" onclick="changeSpeed(3)">Hard</button>
+            </div>
             <span id="gameplayControl">
                 <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
                 <br>
