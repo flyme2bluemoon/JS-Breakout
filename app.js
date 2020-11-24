@@ -138,6 +138,13 @@ function keyUpHandler(e) {
     }
 }
 
+function mouseMoveHandler(e) {
+    var mousePosition = e.clientX - canvas.offsetLeft;
+    if (mousePosition > 0 && mousePosition < canvas.width) {
+        paddlePosition = mousePosition - (paddleWidth / 2);
+    }
+}
+
 // Game control functions
 function movement() {
     x += dx;
@@ -201,7 +208,8 @@ function draw() {
     movement();
 }
 
-document.addEventListener("keydown", keyDownHandler)
-document.addEventListener("keyup", keyUpHandler)
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
+document.addEventListener("mousemove", mouseMoveHandler);
 
 var interval = setInterval(draw, speed);
