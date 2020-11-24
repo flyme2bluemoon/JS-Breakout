@@ -1,4 +1,4 @@
-document.querySelector('#settingsCollapseButton').click();
+// document.querySelector('#settingsCollapseButton').click();
 
 var canvas = document.getElementById("the_canvas")
 var ctx = canvas.getContext("2d");
@@ -183,22 +183,25 @@ function movement() {
 // Game state functions
 function changeSpeed(option) {
     if (option == 1) {
-        console.log("Speed is now slow")
         speed = 12.5;
+        document.querySelector("#speedSettings").innerHTML = `<button type="button" class="btn btn-success" onclick="changeSpeed(1)">Easy</button>
+        <button type="button" class="btn btn-outline-warning" onclick="changeSpeed(2)">Medium</button>
+        <button type="button" class="btn btn-outline-danger" onclick="changeSpeed(3)">Hard</button>`;
         clearInterval(interval);
-        restartGame();
         interval = setInterval(draw, speed);
     } else if (option == 2) {
-        console.log("Speed is now medium")
         speed = 7.5;
+        document.querySelector("#speedSettings").innerHTML = `<button type="button" class="btn btn-outline-success" onclick="changeSpeed(1)">Easy</button>
+        <button type="button" class="btn btn-warning" onclick="changeSpeed(2)">Medium</button>
+        <button type="button" class="btn btn-outline-danger" onclick="changeSpeed(3)">Hard</button>`;
         clearInterval(interval);
-        restartGame();
         interval = setInterval(draw, speed);
     } else if (option == 3) {
-        console.log("Speed is now fast")
         speed = 2.5;
+        document.querySelector("#speedSettings").innerHTML = `<button type="button" class="btn btn-outline-success" onclick="changeSpeed(1)">Easy</button>
+        <button type="button" class="btn btn-outline-warning" onclick="changeSpeed(2)">Medium</button>
+        <button type="button" class="btn btn-danger" onclick="changeSpeed(3)">Hard</button>`;
         clearInterval(interval);
-        restartGame();
         interval = setInterval(draw, speed);
     }
 }
