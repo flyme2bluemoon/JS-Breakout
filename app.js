@@ -167,15 +167,27 @@ function changeSpeed(option) {
     if (option == 1) {
         speed = 10;
         clearInterval(interval);
+        restartGame();
         interval = setInterval(draw, speed);
     } else if (option == 2) {
         speed = 7.5;
         clearInterval(interval);
+        restartGame();
         interval = setInterval(draw, speed);
     } else if (option == 3) {
         speed = 5;
         clearInterval(interval);
+        restartGame();
         interval = setInterval(draw, speed);
+    }
+}
+
+function livesSelector () {
+    if (lives == parseInt(document.querySelector("#livesSliderHelp").innerHTML)) {
+        lives = document.getElementById("livesSlider").value;
+        document.querySelector("#livesSliderHelp").innerHTML = lives;
+    } else {
+        alert("You cannot change the number of lives you have once you have lost a life. Please wait until the next round or restart the round.");
     }
 }
 
@@ -213,7 +225,6 @@ function unpauseGame () {
 
 function restartGame () {
     document.location.reload();
-    lives = 1;
 }
 
 // Main functions

@@ -17,7 +17,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">GAME OVER!</h5>
+                        <h5 class="modal-title" id="gameoverModalLabel">GAME OVER!</h5>
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -35,7 +35,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">CONGRATULATIONS!</h5>
+                        <h5 class="modal-title" id="winnerModalLabel">CONGRATULATIONS!</h5>
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -50,7 +50,8 @@
         </div>
 
         <div id="buttonControls">
-            <div class="btn-group" role="group" aria-label="Basic example">
+            <label for="speedSettings">Number of lives</label><br>
+            <div class="btn-group" role="group" id="speedSettings">
                 <button type="button" class="btn btn-success" onclick="changeSpeed(1)">Easy</button>
                 <button type="button" class="btn btn-warning" onclick="changeSpeed(2)">Medium</button>
                 <button type="button" class="btn btn-danger" onclick="changeSpeed(3)">Hard</button>
@@ -59,6 +60,37 @@
                 <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
                 <br>
             </span>
+            <br>
+            <br>
+            <div>
+                <form onsubmit="livesSelector(); return false;">
+                    <label for="livesSlider">Number of lives</label>
+                    <input type="range" list="tickmarks" id="livesSlider" min="1" max="19">
+                    <datalist id="tickmarks">
+                        <option value="1" label="1"></option>
+                        <option value="2" label="2"></option>
+                        <option value="3" label="3"></option>
+                        <option value="4" label="4"></option>
+                        <option value="5" label="5"></option>
+                        <option value="6" label="6"></option>
+                        <option value="7" label="7"></option>
+                        <option value="8" label="8"></option>
+                        <option value="9" label="9"></option>
+                        <option value="10" label="10"></option>
+                        <option value="11" label="11"></option>
+                        <option value="12" label="12"></option>
+                        <option value="13" label="13"></option>
+                        <option value="14" label="14"></option>
+                        <option value="15" label="15"></option>
+                        <option value="16" label="16"></option>
+                        <option value="17" label="17"></option>
+                        <option value="18" label="18"></option>
+                        <option value="19" label="19"></option>
+                    </datalist>
+                    <small id="livesSliderHelp" class="form-text text-muted">3</small>
+                    <input type="submit" class="btn btn-info">
+                </form>
+            </div>
         </div>
 
         <canvas id="the_canvas" width="1280" height="720"></canvas>

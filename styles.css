@@ -12,14 +12,34 @@ canvas {
     background: #eee;
     display: block;
     margin: 0 auto;
+    border-color: #474747;
+    border-width: 5px;
+    border-style: solid;
 }
 
 #buttonControls {
     margin: auto;
+    margin-bottom: 10px;
     width: 50%;
     padding: 10px;
+    background-color: #e0e0e0;
+    border-color: #474747;
+    border-width: 5px;
+    border-style: solid;
 }
 
 #gameplayControl {
     float: right;
+}
+
+#livesSlider {
+    width: 100%;
+}
+
+form {
+    padding: 10px;
+    background-color: #9e9e9e;
+    border-color: #474747;
+    border-width: 5px;
+    border-style: solid;
 }
