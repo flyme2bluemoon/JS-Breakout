@@ -43,3 +43,8 @@ form {
     border-width: 5px;
     border-style: solid;
 }
+
+footer {
+    text-align: center;
+    padding: 1%;
+}
