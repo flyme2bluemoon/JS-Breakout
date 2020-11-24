@@ -9,6 +9,8 @@ var lives = 3;
 
 var speed = 7.5;
 
+var isPaused = false;
+
 var ballRadius = 15;
 var paddleWidth = 100;
 var paddleHeight = 15;
@@ -131,6 +133,18 @@ function keyDownHandler(e) {
         leftArrowPressed = true;
     } else if (e.key == "`") {
         document.querySelector('#settingsCollapseButton').click();
+    } else if (e.key == "p" || e.key == "P") {
+        if (isPaused) {
+            unpauseGame();
+        } else {
+            pauseGame();
+        }
+    } else if (e.key == "1") {
+        changeSpeed(1);
+    } else if (e.key == "2") {
+        changeSpeed(2);
+    } else if (e.key == "3") {
+        changeSpeed(3);
     }
 }
 
@@ -169,17 +183,20 @@ function movement() {
 // Game state functions
 function changeSpeed(option) {
     if (option == 1) {
-        speed = 10;
+        console.log("Speed is now slow")
+        speed = 12.5;
         clearInterval(interval);
         restartGame();
         interval = setInterval(draw, speed);
     } else if (option == 2) {
+        console.log("Speed is now medium")
         speed = 7.5;
         clearInterval(interval);
         restartGame();
         interval = setInterval(draw, speed);
     } else if (option == 3) {
-        speed = 5;
+        console.log("Speed is now fast")
+        speed = 2.5;
         clearInterval(interval);
         restartGame();
         interval = setInterval(draw, speed);
@@ -213,6 +230,7 @@ function gameOver() {
 
 // Game flow control functions
 function pauseGame () {
+    isPaused = true;
     clearInterval(interval);
     document.querySelector("#gameplayControl").innerHTML = `
         <button type="button" class="btn btn-info" onclick="unpauseGame()">Unpause</button>
@@ -221,6 +239,7 @@ function pauseGame () {
 }
 
 function unpauseGame () {
+    isPaused = false;
     interval = setInterval(draw, speed);
     document.querySelector("#gameplayControl").innerHTML = `
         <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
