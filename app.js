@@ -125,17 +125,19 @@ function collisionDetection() {
 
 // Key Handlers
 function keyDownHandler(e) {
-    if (e.key == "Right" || e.key == "ArrowRight") {
+    if (e.key == "Right" || e.key == "ArrowRight" || e.key == "d" || e.key == "D") {
         rightArrowPressed = true;
-    } else if (e.key == "Left" || e.key == "ArrowLeft") {
+    } else if (e.key == "Left" || e.key == "ArrowLeft" || e.key == "a" || e.key == "A") {
         leftArrowPressed = true;
+    } else if (e.key == "`") {
+        document.querySelector('#settingsCollapseButton').click();
     }
 }
 
 function keyUpHandler(e) {
-    if (e.key == "Right" || e.key == "ArrowRight") {
+    if (e.key == "Right" || e.key == "ArrowRight" || e.key == "d" || e.key == "D") {
         rightArrowPressed = false;
-    } else if (e.key == "Left" || e.key == "ArrowLeft") {
+    } else if (e.key == "Left" || e.key == "ArrowLeft" || e.key == "a" || e.key == "A") {
         leftArrowPressed = false;
     }
 }
