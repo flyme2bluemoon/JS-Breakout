@@ -232,6 +232,12 @@ function restartGame () {
     document.location.reload();
 }
 
+function checkFocus () {
+    if (!document.hasFocus()) {
+        pauseGame();
+    }
+}
+
 // Main functions
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -243,6 +249,7 @@ function draw() {
     collisionDetection();
     wallDetection();
     movement();
+    checkFocus();
 }
 
 document.addEventListener("keydown", keyDownHandler);
