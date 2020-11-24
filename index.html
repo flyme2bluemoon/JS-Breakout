@@ -49,6 +49,24 @@
             </div>
         </div>
 
+        <div class="modal fade" id="livesErrorModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="livesErrorModalLabel">Sorry!</h5>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Unfortunately, you cannot change the number of lives you have once you have lost a life. Please wait until the next round or restart the round.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="unpauseGame();">Dismiss</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="buttonControls">
             <h3>Game settings</h3>
             <label for="speedSettings">Number of lives</label><br>

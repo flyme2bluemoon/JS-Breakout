@@ -187,7 +187,8 @@ function livesSelector () {
         lives = document.getElementById("livesSlider").value;
         document.querySelector("#livesSliderHelp").innerHTML = lives;
     } else {
-        alert("You cannot change the number of lives you have once you have lost a life. Please wait until the next round or restart the round.");
+        pauseGame();
+        $('#livesErrorModal').modal('show');
     }
 }
 
