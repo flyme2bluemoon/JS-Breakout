@@ -81,7 +81,7 @@ function printScore() {
 
 function printLives() {
     ctx.font = "20px Monaco";
-    ctx.fillStyle = "0095DD";
+    ctx.fillStyle = "#0095DD";
     ctx.fillText(`Lives: ${lives}`, canvas.width - 120, 30);
 }
 
@@ -111,9 +111,9 @@ function collisionDetection() {
                     bricks[i][j].status = false;
                     score++;
                     if (score == brickRowCount * brickColumnCount) {
-                        alert("Congrats! You have beaten JS Breakout!");
-                        document.location.reload();
-                        clearInterval(interval);
+                        $('#winnerModal').modal('show');
+                        document.querySelector("#winMessage").innerHTML = `You have beaten JS Breakout! You have gotten a perfect score of 50/50! You have used ${3 - lives + 1} lives.`;
+                        pauseGame();
                     }
                 }
             }
@@ -182,9 +182,9 @@ function changeSpeed(option) {
 function gameOver() {
     lives--;
     if (!lives) {
-        alert("GAME OVER!")
-        document.location.reload();
-        clearInterval(interval);
+        $('#gameoverModal').modal('show');
+        document.querySelector("#gameoverMessage").innerHTML = `Unfortunately, you were not able to beat JS-Breakout... Your final score is ${score}.`;
+        pauseGame();
     } else {
         x = canvas.width / 2;
         y = canvas.height * 0.85;
@@ -194,9 +194,30 @@ function gameOver() {
     }
 }
 
+// Game flow control functions
+function pauseGame () {
+    clearInterval(interval);
+    document.querySelector("#gameplayControl").innerHTML = `
+        <button type="button" class="btn btn-info" onclick="unpauseGame()">Unpause</button>
+        <br>
+    `;
+}
+
+function unpauseGame () {
+    interval = setInterval(draw, speed);
+    document.querySelector("#gameplayControl").innerHTML = `
+        <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
+        <br>
+    `;
+}
+
+function restartGame () {
+    document.location.reload();
+    lives = 1;
+}
+
 // Main functions
 function draw() {
-    console.log(speed)
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     printScore();
     printLives();
@@ -213,19 +234,3 @@ document.addEventListener("keyup", keyUpHandler);
 document.addEventListener("mousemove", mouseMoveHandler);
 
 var interval = setInterval(draw, speed);
-
-function pauseGame () {
-    clearInterval(interval);
-    document.querySelector("#gameplayControl").innerHTML = `
-        <button type="button" class="btn btn-info" onclick="unpauseGame()">Unpause</button>
-        <br>
-    `
-}
-
-function unpauseGame () {
-    interval = setInterval(draw, speed);
-    document.querySelector("#gameplayControl").innerHTML = `
-        <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
-        <br>
-    `
-}

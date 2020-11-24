@@ -14,7 +14,7 @@ canvas {
     margin: 0 auto;
 }
 
-div {
+#buttonControls {
     margin: auto;
     width: 50%;
     padding: 10px;
