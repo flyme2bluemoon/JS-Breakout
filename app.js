@@ -140,7 +140,7 @@ function keyUpHandler(e) {
 
 function mouseMoveHandler(e) {
     var mousePosition = e.clientX - canvas.offsetLeft;
-    if (mousePosition > 0 + (paddleWidth / 2) && mousePosition < canvas.width - (paddleWidth / 2)) {
+    if (mousePosition > 0 + (paddleWidth / 3) && mousePosition < canvas.width - (paddleWidth / 3)) {
         paddlePosition = mousePosition - (paddleWidth / 2);
     }
 }
