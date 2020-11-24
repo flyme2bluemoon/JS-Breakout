@@ -13,3 +13,9 @@ canvas {
     display: block;
     margin: 0 auto;
 }
+
+div {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

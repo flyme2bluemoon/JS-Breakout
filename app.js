@@ -3,6 +3,9 @@ var ctx = canvas.getContext("2d");
 
 // Declaring/defining the variables
 var score = 0;
+var lives = 3;
+
+var speed = 7.5;
 
 var ballRadius = 15;
 var paddleWidth = 100;
@@ -76,6 +79,12 @@ function printScore() {
     ctx.fillText(`Score: ${score}`, 15, 30);
 }
 
+function printLives() {
+    ctx.font = "20px Monaco";
+    ctx.fillStyle = "0095DD";
+    ctx.fillText(`Lives: ${lives}`, canvas.width - 120, 30);
+}
+
 // Collision detection functions
 function wallDetection() {
     if (x + dx < 0 + ballRadius || x + dx > canvas.width - ballRadius) {
@@ -147,16 +156,43 @@ function movement() {
 }
 
 // Game state functions
+function changeSpeed(option) {
+    if (option == 1) {
+        speed = 10;
+        clearInterval(interval);
+        interval = setInterval(draw, speed);
+    } else if (option == 2) {
+        speed = 7.5;
+        clearInterval(interval);
+        interval = setInterval(draw, speed);
+    } else if (option == 3) {
+        speed = 5;
+        clearInterval(interval);
+        interval = setInterval(draw, speed);
+    }
+}
+
 function gameOver() {
-    alert("GAME OVER");
-    document.location.reload();
-    clearInterval(interval);
+    lives--;
+    if (!lives) {
+        alert("GAME OVER!")
+        document.location.reload();
+        clearInterval(interval);
+    } else {
+        x = canvas.width / 2;
+        y = canvas.height * 0.85;
+        dx = 2;
+        dy = -2;
+        paddlePosition = (canvas.width - paddleWidth) / 2;
+    }
 }
 
 // Main functions
 function draw() {
+    console.log(speed)
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     printScore();
+    printLives();
     drawBricks();
     drawBall();
     drawPaddle();
@@ -168,4 +204,4 @@ function draw() {
 document.addEventListener("keydown", keyDownHandler)
 document.addEventListener("keyup", keyUpHandler)
 
-var interval = setInterval(draw, 10);
+var interval = setInterval(draw, speed);
