@@ -213,3 +213,19 @@ document.addEventListener("keyup", keyUpHandler);
 document.addEventListener("mousemove", mouseMoveHandler);
 
 var interval = setInterval(draw, speed);
+
+function pauseGame () {
+    clearInterval(interval);
+    document.querySelector("#gameplayControl").innerHTML = `
+        <button type="button" class="btn btn-info" onclick="unpauseGame()">Unpause</button>
+        <br>
+    `
+}
+
+function unpauseGame () {
+    interval = setInterval(draw, speed);
+    document.querySelector("#gameplayControl").innerHTML = `
+        <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
+        <br>
+    `
+}

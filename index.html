@@ -14,13 +14,10 @@
             <button type="button" class="btn btn-success" onclick="changeSpeed(1)">Easy</button>
             <button type="button" class="btn btn-warning" onclick="changeSpeed(2)">Medium</button>
             <button type="button" class="btn btn-danger" onclick="changeSpeed(3)">Hard</button>
-            <br>
-        </div>
-
-        <div>
-            <!-- <button type="button" class="btn btn-success" onclick="start()">Start</button> -->
-            <!-- <button type="button" class="btn btn-danger" onclick="stop()">Stop</button> -->
-            <br>
+            <span id="gameplayControl">
+                <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
+                <br>
+            </span>
         </div>
 
         <canvas id="the_canvas" width="1280" height="720"></canvas>
