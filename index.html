@@ -73,20 +73,22 @@
             <div id="buttonControls">
                 <h3>Game settings</h3>
                 <label for="speedSettings">Number of lives</label><br>
-                <div class="btn-group" role="group" id="speedSettings">
-                    <button type="button" class="btn btn-outline-success" onclick="changeSpeed(1)">Easy</button>
-                    <button type="button" class="btn btn-warning" onclick="changeSpeed(2)">Medium</button>
-                    <button type="button" class="btn btn-outline-danger" onclick="changeSpeed(3)">Hard</button>
+                <div id="flexbox-container">
+                    <div class="btn-group" role="group" id="speedSettings">
+                        <button type="button" class="btn btn-outline-success" onclick="changeSpeed(1)">Easy</button>
+                        <button type="button" class="btn btn-warning" onclick="changeSpeed(2)">Medium</button>
+                        <button type="button" class="btn btn-outline-danger" onclick="changeSpeed(3)">Hard</button>
+                    </div>
+                    <span id="controlsOnRight">
+                        <span id="restartButton">
+                            <button type="button" class="btn btn-outline-info" onclick="restartGame()">Restart</button>
+                        </span>
+                        <span id="gameplayControl">
+                            <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
+                            <br>
+                        </span>
+                    </span>
                 </div>
-                <span id="controlsOnRight">
-                    <span id="restartButton">
-                        <button type="button" class="btn btn-outline-info" onclick="restartGame()">Restart</button>
-                    </span>
-                    <span id="gameplayControl">
-                        <button type="button" class="btn btn-outline-info" onclick="pauseGame()">Pause</button>
-                        <br>
-                    </span>
-                </span>
                 <br>
                 <br>
                 <div>

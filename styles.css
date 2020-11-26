@@ -56,3 +56,20 @@ footer {
     margin-bottom: 10px;
     width: 12%;
 }
+
+@media (max-width: 1600px) {
+    canvas {
+        width: 80%;
+    }
+}
+
+#speedSettings > button {
+    margin-botton: 20px;
+}
+
+@media (max-width: 850px) {
+    #flexbox-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
