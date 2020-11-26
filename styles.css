@@ -66,10 +66,3 @@ footer {
 #speedSettings > button {
     margin-botton: 20px;
 }
-
-@media (max-width: 850px) {
-    #flexbox-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
