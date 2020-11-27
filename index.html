@@ -64,6 +64,24 @@
             </div>
         </div>
 
+        <div class="modal fade" id="restartModal" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="restartModalLabel">Are you sure?!</h5>
+                        </button>
+                    </div>
+                    <div id="restartMessage" class="modal-body">
+                        Are you sure you want to restart the game?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="unpauseGame();">Cancel</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="confirmRestartGame();">Restart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings" id="settingsCollapseButton" onclick="pauseGame();">Show/hide settings</button>
 
         <div class="collapse" id="collapseSettings">

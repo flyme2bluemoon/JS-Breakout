@@ -261,6 +261,12 @@ function unpauseGame () {
 }
 
 function restartGame () {
+    $('#restartModal').modal('show');
+    document.getElementById("restartMessage").innerHTML = `Are you sure you want to restart the game? Your current score is ${score} and you still have ${lives} lives remaining.`;
+    pauseGame();
+}
+
+function confirmRestartGame () {
     document.location.reload();
 }
 
