@@ -1,11 +1,10 @@
-// document.querySelector('#settingsCollapseButton').click();
-
 var canvas = document.getElementById("the_canvas")
 var ctx = canvas.getContext("2d");
 
 // Declaring/defining the variables
 var score = 0;
-var lives = 3;
+var originalLives = 3;
+var lives = originalLives;
 
 var speed = 7.5;
 
@@ -139,6 +138,8 @@ function keyDownHandler(e) {
         } else {
             pauseGame();
         }
+    } else if (e.key == "o" || e.key == "O") {
+        restartGame();
     } else if (e.key == "1") {
         changeSpeed(1);
     } else if (e.key == "2") {
@@ -206,10 +207,17 @@ function changeSpeed(option) {
     }
 }
 
-function livesSelector () {
-    if (lives == parseInt(document.querySelector("#livesSliderHelp").innerHTML)) {
-        lives = document.getElementById("livesSlider").value;
-        document.querySelector("#livesSliderHelp").innerHTML = lives;
+function livesSelector (newLives) {
+    if (lives == originalLives) {
+        originalLives = newLives;
+        lives = newLives;
+        for (var i = 1; i <= 20; i++) {
+            if (i == newLives) {
+                document.getElementById(`liveSelector${i}`).className = "btn btn-dark"
+            } else {
+                document.getElementById(`liveSelector${i}`).className = "btn btn-outline-dark"
+            }
+        }
     } else {
         pauseGame();
         $('#livesErrorModal').modal('show');
@@ -251,6 +259,12 @@ function unpauseGame () {
 }
 
 function restartGame () {
+    $('#restartModal').modal('show');
+    document.getElementById("restartMessage").innerHTML = `Are you sure you want to restart the game? Your current score is ${score} and you still have ${lives} lives remaining.`;
+    pauseGame();
+}
+
+function confirmRestartGame () {
     document.location.reload();
 }
 
