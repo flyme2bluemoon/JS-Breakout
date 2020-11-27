@@ -66,4 +66,9 @@ footer {
   margin-botton: 20px;
 }
 
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /*# sourceMappingURL=styles.css.map */

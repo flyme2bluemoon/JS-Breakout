@@ -5,7 +5,8 @@ var ctx = canvas.getContext("2d");
 
 // Declaring/defining the variables
 var score = 0;
-var lives = 3;
+var originalLives = 3;
+var lives = originalLives;
 
 var speed = 7.5;
 
@@ -139,6 +140,8 @@ function keyDownHandler(e) {
         } else {
             pauseGame();
         }
+    } else if (e.key == "o" || e.key == "O") {
+        restartGame();
     } else if (e.key == "1") {
         changeSpeed(1);
     } else if (e.key == "2") {
@@ -206,10 +209,17 @@ function changeSpeed(option) {
     }
 }
 
-function livesSelector () {
-    if (lives == parseInt(document.querySelector("#livesSliderHelp").innerHTML)) {
-        lives = document.getElementById("livesSlider").value;
-        document.querySelector("#livesSliderHelp").innerHTML = lives;
+function livesSelector (newLives) {
+    if (lives == originalLives) {
+        originalLives = newLives;
+        lives = newLives;
+        for (var i = 1; i <= 20; i++) {
+            if (i == newLives) {
+                document.getElementById(`liveSelector${i}`).className = "btn btn-dark"
+            } else {
+                document.getElementById(`liveSelector${i}`).className = "btn btn-outline-dark"
+            }
+        }
     } else {
         pauseGame();
         $('#livesErrorModal').modal('show');
