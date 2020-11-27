@@ -1,4 +1,4 @@
-var canvas = document.getElementById("the_canvas")
+var canvas = document.getElementById("the_canvas");
 var ctx = canvas.getContext("2d");
 
 // Declaring/defining the variables
@@ -38,7 +38,7 @@ var bricks = [];
 for (var i = 0; i < brickColumnCount; i++) {
     bricks[i] = [];
     for (var j = 0; j < brickRowCount; j++) {
-        bricks[i][j] = {x : 0, y : 0, status : 1}
+        bricks[i][j] = {x : 0, y : 0, status : 1};
     }
 }
 
@@ -178,7 +178,7 @@ function movement() {
     } else if (rightArrowPressed) {
         paddlePosition += 7.5;
         if (paddlePosition > canvas.width - paddleWidth) {
-            paddlePosition = canvas.width - paddleWidth
+            paddlePosition = canvas.width - paddleWidth;
         }
     }
 }
@@ -223,9 +223,9 @@ function livesSelector (newLives) {
         lives = newLives;
         for (var i = 1; i <= maxLives; i++) {
             if (i == newLives) {
-                document.getElementById(`liveSelector${i}`).className = "btn btn-dark"
+                document.getElementById(`liveSelector${i}`).className = "btn btn-dark";
             } else {
-                document.getElementById(`liveSelector${i}`).className = "btn btn-outline-dark"
+                document.getElementById(`liveSelector${i}`).className = "btn btn-outline-dark";
             }
         }
     } else {
