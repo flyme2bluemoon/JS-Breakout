@@ -8,6 +8,8 @@ var lives = originalLives;
 
 var speed = 7.5;
 
+var maxLives = 20;
+
 var isPaused = false;
 
 var ballRadius = 15;
@@ -207,11 +209,19 @@ function changeSpeed(option) {
     }
 }
 
+function loadLivesSelector () {
+    document.getElementById(`livesSelectorButtons`).innerHTML = "";
+    for (var i = 1; i <= maxLives; i++) {
+        document.getElementById(`livesSelectorButtons`).innerHTML += `<button type="button" class="btn btn-outline-dark" id="liveSelector${i}" onclick="livesSelector(${i});">${i}</button>`;
+    }
+    livesSelector(originalLives);
+}
+
 function livesSelector (newLives) {
     if (lives == originalLives) {
         originalLives = newLives;
         lives = newLives;
-        for (var i = 1; i <= 20; i++) {
+        for (var i = 1; i <= maxLives; i++) {
             if (i == newLives) {
                 document.getElementById(`liveSelector${i}`).className = "btn btn-dark"
             } else {
@@ -287,6 +297,8 @@ function draw() {
     movement();
     checkFocus();
 }
+
+loadLivesSelector();
 
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
