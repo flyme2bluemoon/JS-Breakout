@@ -8,6 +8,8 @@ var lives = originalLives;
 
 var speed = 7.5;
 
+// var speedConstant = 2 * Math.sqrt(2); // for a planned feature.
+
 var maxLives = 20;
 
 var isPaused = false;
@@ -20,7 +22,11 @@ var x = canvas.width / 2;
 var y = canvas.height * 0.85;
 var paddlePosition = (canvas.width - paddleWidth) / 2;
 
-var dx = 2;
+if (Math.floor(Math.random() * 2)) {
+    var dx = Math.random() * 2 + 1;
+} else {
+    dx = Math.random() * -2 - 1;
+}
 var dy = -2;
 
 var leftArrowPressed = false;
@@ -100,6 +106,11 @@ function wallDetection() {
     } else if (y + dy == (canvas.height * 0.85)) {
         if (x > paddlePosition - ballRadius && x < paddlePosition + paddleWidth + ballRadius) {
             dy = -dy;
+            if (dx > 0) {
+                dx = Math.random() * 2 + 1;
+            } else {
+                dx = Math.random() * -2 - 1;
+            }
         }
     }
     if (y + dy > canvas.height - ballRadius) {
